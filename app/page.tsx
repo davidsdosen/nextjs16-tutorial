@@ -1,9 +1,6 @@
 import ExploreBtn from "@/components/ExploreBtn";
-
-const events = [
-    { image: '/images/event-1.png', title: 'Event 1' },
-    { image: '/images/event-2.png', title: 'Event 2' },
-]
+import EventCard from "@/components/EventCard";
+import {events} from "@/lib/constants";
 
 const Page = () => {
     return (
@@ -15,8 +12,10 @@ const Page = () => {
         <div className={"mt-20 space-y-7"}>
             <h3>Featured events</h3>
             <ul className={"events list-none"}>
-                {[1,2,3,4,5,6].map((event) => (
-                    <li key={event}>Event {event}</li>
+                {events.map((event) => (
+                    <li key={event.title}>
+                        <EventCard {...event} />
+                    </li>
                 ))}
             </ul>
         </div>
